@@ -201,7 +201,7 @@ for (var i = 0; i < layers.length; i++) {
 // <---- Calque VOR-DME 
         
 VordmeLayer.loadGeoJson(
-            'https://dl.dropboxusercontent.com/s/54bgw68ew3hyzb1/vordme.geojson');
+            'vordme.geojson');
 VordmeLayer.setStyle( function(feature){
     var title = feature.getProperty('name');
     var icon  = feature.getProperty('icon');
