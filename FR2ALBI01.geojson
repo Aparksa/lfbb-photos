@@ -1,0 +1,300 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.46616684627167,
+            43.3344997019009,
+            5486
+          ],
+          [
+            2.46616684627167,
+            44.0781690331394,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "stroke": "#ff0080",
+        "stroke-width": 3,
+        "stroke-opacity": 1,
+        "name": "FR2ALBI01 1",
+        "description": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.40383331014499,
+            43.3344997019009,
+            5486
+          ],
+          [
+            2.40383302942146,
+            44.078572370501,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 2",
+        "description": "",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.34166680451647,
+            43.3344997019009,
+            5486
+          ],
+          [
+            2.34166680451647,
+            44.0809019932984,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 3",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.27950001816443,
+            43.0461632154533,
+            5486
+          ],
+          [
+            2.27950029888796,
+            44.076878335106,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 4",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.21716676276128,
+            43.0461632154533,
+            5486
+          ],
+          [
+            2.21716676276128,
+            44.0786369042238,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 5",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.15499997640924,
+            43.0461632154533,
+            5486
+          ],
+          [
+            2.15500025713277,
+            44.0791918913337,
+            5486
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 6",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.09283333041897,
+            43.0461632154533,
+            5182
+          ],
+          [
+            2.09283333041897,
+            44.0785239701628,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 7",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.03049993465405,
+            43.0461632154533,
+            5182
+          ],
+          [
+            2.03050021537758,
+            44.0773300826202,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 8",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.96833328866377,
+            43.0461632154533,
+            5182
+          ],
+          [
+            1.96833328866377,
+            44.0799307905112,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 9",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.9061666426735,
+            43.0461632154533,
+            5182
+          ],
+          [
+            1.9061666426735,
+            44.0797500998616,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 10",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.84383324690858,
+            43.0461632154533,
+            5182
+          ],
+          [
+            1.84383324690858,
+            44.0795339156808,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 11",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.78166660091831,
+            43.0461632154533,
+            5182
+          ],
+          [
+            1.78166660091831,
+            44.0772655474722,
+            5182
+          ]
+        ]
+      },
+      "properties": {
+        "name": "FR2ALBI01 12",
+        "stroke": "#ff0080",
+        "stroke-width": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0.827499967493463,
+            45.285666482049,
+            5182
+          ],
+          [
+            0.827499967493463,
+            46.1492905767458,
+            5182
+          ]
+        ]
+      }
+}]
+}

@@ -165,34 +165,34 @@ function initMap() {
                ddToDms(event.latLng.lat(),event.latLng.lng())             
         });
  
-//<--- sources des calques
+<!-- sources des calques
     
 
- layers [0] = new google.maps.KmlLayer('/FR02AGEN01.kml',
-   {preserveViewport: true, suppressInfoWindows: false});
-layers [1] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoWFo0SG5kcGtJWjQ',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [2] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoYmdzVkFGN3FWd28',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [3] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/FIR.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [4] = new google.maps.KmlLayer('CTL_FIR.kml',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [5] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Pt.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [6] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/SIV.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [7] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_UIR.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [8] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/xmbxvhceyc5rppk/AP_16.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [9] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/a715ht4oq5a7nc6/AQ_16.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
-layers [10] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/v0mvpxndig09fnp/AO15.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
+//layers [0] = new google.maps.KmlLayer('/FR02AGEN01.kml',
+//   {preserveViewport: true, suppressInfoWindows: false});
+//layers [1] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoWFo0SG5kcGtJWjQ',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [2] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoYmdzVkFGN3FWd28',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [3] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/FIR.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [4] = new google.maps.KmlLayer('CTL_FIR.kml',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [5] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Pt.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [6] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/SIV.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [7] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_UIR.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [8] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/xmbxvhceyc5rppk/AP_16.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [9] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/a715ht4oq5a7nc6/AQ_16.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
+//layers [10] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/v0mvpxndig09fnp/AO15.kmz',
+//  {preserveViewport: true, suppressInfoWindows: false});
     
  
-//----> sources des calques
+--> sources des calques
     
 for (var i = 0; i < layers.length; i++) {
         layers[i].setMap(null);
