@@ -42,6 +42,10 @@ var VordmeLayer = new google.maps.Data();
 var VorLayer = new google.maps.Data();
 var NDBLayer = new google.maps.Data();
 var ParaLayer = new google.maps.Data();
+var CTLFIRLayer = new google.maps.Data();
+var CTLUIRLayer = new google.maps.Data();
+var SIVLayer = new google.maps.Data();
+var SFSAGENLayer = new google.maps.Data();
     
 //<---initMap 
     
@@ -163,15 +167,16 @@ function initMap() {
  
 //<--- sources des calques
     
-layers [0] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/AT14.kmz',
-  {preserveViewport: true, suppressInfoWindows: false});
+
+ layers [0] = new google.maps.KmlLayer('/FR02AGEN01.kml',
+   {preserveViewport: true, suppressInfoWindows: false});
 layers [1] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoWFo0SG5kcGtJWjQ',
   {preserveViewport: true, suppressInfoWindows: false});
 layers [2] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoYmdzVkFGN3FWd28',
   {preserveViewport: true, suppressInfoWindows: false});
 layers [3] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/FIR.kmz',
   {preserveViewport: true, suppressInfoWindows: false});
-layers [4] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_FIR.kmz',
+layers [4] = new google.maps.KmlLayer('CTL_FIR.kml',
   {preserveViewport: true, suppressInfoWindows: false});
 layers [5] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Pt.kmz',
   {preserveViewport: true, suppressInfoWindows: false});
@@ -251,11 +256,49 @@ P5lLayer.addListener('click', function (event) {
     });  
 
 //        Calque P5L---->
+
+// <---- Calque SFSAGEN 
+    
+SFSAGENLayer.loadGeoJson(
+            'FR2AGEN01.geojson');
+        
+SFSAGENLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        strokeColor: color,
+        strokeWeight: width,
+        fillOpacity: opacity,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSAGENLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + "myHTML" + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSAGEN---->
     
 // <---- Calque VOR
     
 VorLayer.loadGeoJson(
-            'https://dl.dropboxusercontent.com/s/2123o3tzh2gq7io/vor.geojson');
+            'vor.geojson');
         
 VorLayer.setStyle( function(feature){
     var title = feature.getProperty('name');
@@ -363,6 +406,57 @@ ParaLayer.addListener('click', function (event) {
     });  
 
 //        Calque Para----> 
+
+// <---- Calque CTLFIR 
+    
+CTLFIRLayer.loadGeoJson(
+            'CTL_FIR.geojson');
+
+CTLFIRLayer.setStyle(function(feature) {
+    var color = feature.getProperty('stroke');
+    var opacity = feature.getProperty('fill-opacity');
+    return{
+      strokeColor: color,
+      strokeWeight: 2,
+      fillOpacity: opacity
+    };
+});
+            
+//        Calque CTLFIR---->
+
+// <---- Calque CTLUIR 
+    
+CTLUIRLayer.loadGeoJson(
+            'CTL_UIR.geojson');
+
+CTLUIRLayer.setStyle(function(feature) {
+    var color = feature.getProperty('stroke');
+    var opacity = feature.getProperty('fill-opacity');
+    return{
+      strokeColor: color,
+      strokeWeight: 2,
+      fillOpacity: opacity
+    };
+});
+            
+//        Calque CTLUIR---->
+
+// <---- Calque SIV 
+    
+SIVLayer.loadGeoJson(
+            'SIV.geojson');
+
+SIVLayer.setStyle(function(feature) {
+    var color = feature.getProperty('stroke');
+    var opacity = feature.getProperty('fill-opacity');
+    return{
+      strokeColor: color,
+      strokeWeight: 2,
+      fillOpacity: opacity
+    };
+});
+            
+//        CalqueSIV---->
  
  check();
 
@@ -426,14 +520,14 @@ function getDms(val) {
     
 //<---toggleLayer 
 
-function toggleLayer(i) {
-  if (layers[i].getMap() === null) {
-    layers[i].setMap(map);
-  }
-  else {
-    layers[i].setMap(null);
-  }  
-}
+// function toggleLayer(i) {
+//  if (layers[i].getMap() === null) {
+//    layers[i].setMap(map);
+//  }
+//  else {
+//    layers[i].setMap(null);
+//  }  
+//}
  
 //----toggleLayer>
     
@@ -453,6 +547,38 @@ function check()
         else 
 
           {VordmeLayer.setMap(null);}
+        
+        if(document.getElementById('SFSAGEN').checked)
+
+          {SFSAGENLayer.setMap(map);}
+
+        else 
+
+          {SFSAGENLayer.setMap(null);}
+          
+        if(document.getElementById('CTL FIR').checked)
+
+          {CTLFIRLayer.setMap(map);}
+
+        else 
+
+          {CTLFIRLayer.setMap(null);}
+        
+        if(document.getElementById('CTL UIR').checked)
+
+          {CTLUIRLayer.setMap(map);}
+
+        else 
+
+          {CTLUIRLayer.setMap(null);}
+          
+        if(document.getElementById('SIV').checked)
+
+          {SIVLayer.setMap(map);}
+
+        else 
+
+          {SIVLayer.setMap(null);}
         
 
         if(document.getElementById('P5L').checked)
@@ -496,15 +622,17 @@ function check()
 <div id="checkboxes">
   <a href="#missions" data-toggle="collapse"><u><i class="glyphicon glyphicon-camera"></i>Missions</u></a>
   <div id="missions" class="collapse">
-   <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ AERODATA</a>
+   <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ SFS</a>
     <div id="l1" class="collapse">
      <div id="checkboxes1"><b style='color:blue'>
-     <input type="checkbox" id="layer10" onClick="toggleLayer(10)"/>AO15<br>
-     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
+     <input type="checkbox" id="SFSAGEN" onClick="check()"/>FR02AGEN01<br>
+<!--     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
      <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
      <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
+-->
      </div>
     </div><br>
+<!--    
   <a href="#l2" data-toggle="collapse">→ ICGC</a>
      <div id="l2" class="collapse">
       <div id="checkboxes2">
@@ -522,6 +650,7 @@ function check()
       </div>
      </div>
   </div><br>
+-->
   <a href="#Data" data-toggle="collapse"><u><i class="glyphicon glyphicon-globe"></i> Données CA</u></a>
   <div id="Data" class="collapse">
     <a href="#nav" data-toggle="collapse">→ NAV</a>
@@ -535,14 +664,15 @@ function check()
        <div id="D1" class="collapse">
         <div id="checkboxes_D1">
         <input type="checkbox" id="layer3" onClick="toggleLayer(3)"/><font size="4" color="red">▬</font> FIR LFBB<br />
-        <input type="checkbox" id="layer4" onClick="toggleLayer(4)"/><font size="4" color="purple">▬</font> CTL FIR<br /> 
+        <input type="checkbox" id="CTL FIR" onClick="check()"/><font size="4" color="purple">▬</font> CTL FIR<br />
+        <input type="checkbox" id="SIV" onClick="check()"/><font size="4" color="blue">▬</font> SIV<br />
         <input type="checkbox" id="Para" onclick="check()" /><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para<br />
         </div>
        </div><br>
     <a href="#D2" data-toggle="collapse">→ UIR</a>
        <div id="D2" class="collapse">
         <div id="checkboxes_D2">
-        <input type="checkbox" id="layer7" onClick="toggleLayer(7)"/><font size="4" color="cyan">▬</font> CTL UIR<br />
+        <input type="checkbox" id="CTL UIR" onClick="check()"/><font size="4" color="green">▬</font> CTL UIR<br />
         </div>
        </div>
   </div>

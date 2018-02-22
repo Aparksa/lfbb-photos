@@ -1,0 +1,117 @@
+{
+type: "FeatureCollection",
+features: [
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-0.851836000000001,
+47.5368720827936,
+0
+]
+},
+properties: {
+name: "ANG"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+1.824175,
+43.9540440835757,
+0
+]
+},
+properties: {
+name: "GAI"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+2.149589,
+46.6914220833429,
+0
+]
+},
+properties: {
+name: "LCA"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+2.929353,
+47.1529890830788,
+0
+]
+},
+properties: {
+name: "NEV"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+0.298189,
+46.5809970833965,
+0
+]
+},
+properties: {
+name: "POI"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-0.152928,
+44.6768140837368,
+0
+]
+},
+properties: {
+name: "SAU"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-0.018403,
+43.4666690833772,
+0
+]
+},
+properties: {
+name: "LMB"
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+1.755556,
+47.9853060824256,
+0
+]
+},
+properties: {
+name: "BCY"
+}
+}
+]
+}
