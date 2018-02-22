@@ -234,13 +234,17 @@ P5lLayer.setStyle( function(feature){
     var icon  = feature.getProperty('icon');
     return  {
         icon: {
-        url: icon,
-        labelOrigin: new google.maps.Point(6, -8)
+        path: "M150 0 L55 200 L245 200 Z",
+        scale: 0.03,
+        fillOpacity: 1,
+        strokeColor: 'black',
+        strokeWeight: 1,
+        labelOrigin: new google.maps.Point(55, -250)
       }, 
         label: {
         color: "black",
         fontFamily: "Arial",
-        fontSize: "10px",
+        fontSize: "8px",
         fontWeight: "normal",
         text: title}
     }
