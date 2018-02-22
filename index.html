@@ -204,16 +204,19 @@ VordmeLayer.loadGeoJson(
             'vordme.geojson');
 VordmeLayer.setStyle( function(feature){
     var title = feature.getProperty('name');
-    var icon  = feature.getProperty('icon');
     return  {
         icon: {
-        url: icon,
-        labelOrigin: new google.maps.Point(10, -10)
+        path: "M0.15671 0.14499l0 -0.01482m0.07836 -0.12276l-0.15032 0 -0.07617 0.13123 0.07617 0.12912 0.15032 0 0.07408 -0.12912 -0.07408 -0.13123 -0.00424 0m-0.22225 0l0 0.26035 0.30057 0 0 -0.26035 -0.30057 0 0 0.00423",
+        scale: 60,
+        fillOpacity: 0,
+        strokeColor: 'green',
+        strokeWeight: 1,
+        labelOrigin: new google.maps.Point(0.15, -0.080)
       }, 
         label: {
         color: "green",
         fontFamily: "Arial",
-        fontSize: "12px",
+        fontSize: "11px",
         fontWeight: "bold",
         text: title}
     }
@@ -302,18 +305,20 @@ VorLayer.loadGeoJson(
         
 VorLayer.setStyle( function(feature){
     var title = feature.getProperty('name');
-//  var icon  = feature.getProperty('icon');
     return  {
         icon: {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pictogram_VOR.svg/95px-Pictogram_VOR.svg.png',
-        scaledSize: new google.maps.Size(25, 22),
-        labelOrigin: new google.maps.Point(12, -8)
+        path: "m0.15671,0.14499l0,-0.01482m0.07836,-0.12276l-0.15032,0l-0.07617,0.13123l0.07617,0.12912l0.15032,0l0.07408,-0.12912l-0.07408,-0.13123l-0.00424,0m-0.22225,0.00423",
+        scale: 60,
+        fillOpacity: 0,
+        strokeColor: 'green',
+        strokeWeight: 1,
+        labelOrigin: new google.maps.Point(0.15, -0.080)
       }, 
         label: {
         color: "green",
         fontFamily: "Arial",
-        fontSize: "10px",
-        fontWeight: "normal",
+        fontSize: "11px",
+        fontWeight: "bold",
         text: title}
     }
 });
