@@ -46,6 +46,7 @@ var CTLFIRLayer = new google.maps.Data();
 var CTLUIRLayer = new google.maps.Data();
 var SIVLayer = new google.maps.Data();
 var SFSAGENLayer = new google.maps.Data();
+var SFSALBILayer = new google.maps.Data();
     
 //<---initMap 
     
@@ -194,9 +195,9 @@ function initMap() {
  
 --> sources des calques
     
-for (var i = 0; i < layers.length; i++) {
-        layers[i].setMap(null);
-      }
+//for (var i = 0; i < layers.length; i++) {
+//        layers[i].setMap(null);
+//     }
                
 // <---- Calque VOR-DME 
         
@@ -301,6 +302,44 @@ SFSAGENLayer.addListener('click', function (event) {
     });  
 
 //        Calque SFSAGEN---->
+
+// <---- Calque SFSALBI 
+    
+SFSALBILayer.loadGeoJson(
+            'FR2ALBI01.geojson');
+        
+SFSALBILayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        strokeColor: color,
+        strokeWeight: width,
+        fillOpacity: opacity,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSALBILayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + "myHTML" + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSALBI---->
     
 // <---- Calque VOR
     
@@ -565,6 +604,14 @@ function check()
 
           {SFSAGENLayer.setMap(null);}
           
+        if(document.getElementById('SFSALBI').checked)
+
+          {SFSALBILayer.setMap(map);}
+
+        else 
+
+          {SFSALBILayer.setMap(null);}
+          
         if(document.getElementById('CTL FIR').checked)
 
           {CTLFIRLayer.setMap(map);}
@@ -635,6 +682,7 @@ function check()
     <div id="l1" class="collapse">
      <div id="checkboxes1"><b style='color:blue'>
      <input type="checkbox" id="SFSAGEN" onClick="check()"/>FR02AGEN01<br>
+     <input type="checkbox" id="SFSALBI" onClick="check()"/>FR02ALBI01<br>
 <!--     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
      <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
      <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
