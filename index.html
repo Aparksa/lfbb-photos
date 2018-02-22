@@ -1,12 +1,551 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>GistRun</title>
-  <!--<link rel="stylesheet" href="styles.css">-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <LINK href="sudoc.ico" rel="SHORTCUT ICON">
+    <title>Missions Photos CRNA/SO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzsszNcYWEcEb_CwEoHZUv31Gx3A_-XAM&callback=initMap"></script>
+        
+<style>
+   html { height: 100%; }
+   body { height: 100%; margin: 0; padding: 0; }
+   #map { height: 100%; }
+   #checkboxes {
+  	position: absolute;
+  	top: 50px;
+  	right: 10px;
+  	font-family: 'arial', 'sans-serif';
+  	font-size: 14px;
+  	background-color: white;
+  	border: 2px solid red;
+  	padding: 5px 10px;
+    box-shadow: 0 5px 10px #777
+    }
+   #coords {
+        background-color: black;
+        color: white;
+        padding: 5px;
+      }
+</style>        
+
+<script type="text/javascript">
+var map=null;
+var layers = [];
+var infowindow = new google.maps.InfoWindow();
+var P5lLayer = new google.maps.Data();
+var VordmeLayer = new google.maps.Data();
+var VorLayer = new google.maps.Data();
+var NDBLayer = new google.maps.Data();
+var ParaLayer = new google.maps.Data();
+    
+//<---initMap 
+    
+function initMap() {
+        features = [];
+        var styledMapType = new google.maps.StyledMapType(
+ //<---StyledMap
+            [
+  {
+    "featureType": "administrative",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#c0c0c0"
+      },
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      },
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "stylers": [
+      {
+        "color": "#82c0ff"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+]
+ //---->StyledMap   
+            
+            , {name: 'POLDOC'});
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.4, lng: 0.5},
+          zoom: 6,
+          streetViewControl: false,
+          zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                    'styled_map']
+      }});
+        
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+        
+        
+        var coordsDiv = document.getElementById('coords');
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(coordsDiv);
+        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(logoDiv);
+        map.addListener('mousemove', function(event) {
+          coordsDiv.textContent =
+               ddToDms(event.latLng.lat(),event.latLng.lng())             
+        });
+ 
+//<--- sources des calques
+    
+layers [0] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/AT14.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [1] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoWFo0SG5kcGtJWjQ',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [2] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoYmdzVkFGN3FWd28',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [3] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/FIR.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [4] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_FIR.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [5] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Pt.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [6] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/SIV.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [7] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_UIR.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [8] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/xmbxvhceyc5rppk/AP_16.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [9] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/a715ht4oq5a7nc6/AQ_16.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+layers [10] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/v0mvpxndig09fnp/AO15.kmz',
+  {preserveViewport: true, suppressInfoWindows: false});
+    
+ 
+//----> sources des calques
+    
+for (var i = 0; i < layers.length; i++) {
+        layers[i].setMap(null);
+      }
+               
+// <---- Calque VOR-DME 
+        
+VordmeLayer.loadGeoJson(
+            'https://dl.dropboxusercontent.com/s/54bgw68ew3hyzb1/vordme.geojson');
+VordmeLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var icon  = feature.getProperty('icon');
+    return  {
+        icon: {
+        url: icon,
+        labelOrigin: new google.maps.Point(10, -10)
+      }, 
+        label: {
+        color: "green",
+        fontFamily: "Arial",
+        fontSize: "12px",
+        fontWeight: "bold",
+        text: title}
+    }
+});   
+    
+//       Calque VOR-DME----> 
+    
+// <---- Calque P5L 
+    
+P5lLayer.loadGeoJson(
+            'https://dl.dropboxusercontent.com/s/nmhud5p9qis4a2t/P5L.geojson');
+        
+P5lLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var icon  = feature.getProperty('icon');
+    return  {
+        icon: {
+        url: icon,
+        labelOrigin: new google.maps.Point(6, -8)
+      }, 
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title}
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+P5lLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque P5L---->
+    
+// <---- Calque VOR
+    
+VorLayer.loadGeoJson(
+            'https://dl.dropboxusercontent.com/s/2123o3tzh2gq7io/vor.geojson');
+        
+VorLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+//  var icon  = feature.getProperty('icon');
+    return  {
+        icon: {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pictogram_VOR.svg/95px-Pictogram_VOR.svg.png',
+        scaledSize: new google.maps.Size(25, 22),
+        labelOrigin: new google.maps.Point(12, -8)
+      }, 
+        label: {
+        color: "green",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title}
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+VorLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque VOR----> 
+    
+// <---- Calque NDB 
+    
+NDBLayer.loadGeoJson(
+            'https://dl.dropboxusercontent.com/s/j0wpyjulunk3k64/NDB.geojson');
+        
+NDBLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+//    var icon  = feature.getProperty('icon');
+    return  {
+        icon: {
+        url: 'https://dl.dropboxusercontent.com/s/rpwj3wp4lsfqjfv/NDB.png',
+        scaledSize: new google.maps.Size(25, 25),
+        labelOrigin: new google.maps.Point(10, -8)
+      }, 
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+NDBLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque NDB----> 
+    
+// <---- Calque Para 
+    
+ParaLayer.loadGeoJson(
+            'https://dl.dropboxusercontent.com/s/04ecrcb84mgtf57/Para.geojson');
+        
+ParaLayer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+//    var icon  = feature.getProperty('icon');
+    return  {
+        icon: {
+        url: 'https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png',
+        scaledSize: new google.maps.Size(13, 13),
+        labelOrigin: new google.maps.Point(10, -8)
+      }, 
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "8px",
+        fontWeight: "normal",
+        text: title}
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ParaLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque Para----> 
+ 
+ check();
+
+}
+    
+//----initMap> 
+           
+//<---ddToDms 
+    
+function ddToDms(lat, lng) {
+
+   var lat = lat;
+   var lng = lng;
+   var latResult, lngResult, dmsResult;
+
+   lat = parseFloat(lat);  
+   lng = parseFloat(lng);
+
+   latResult = (lat >= 0)? 'N' : 'S';
+
+   // Call to getDms(lat) function for the coordinates of Latitude in DMS.
+   // The result is stored in latResult variable.
+   latResult += getDms(lat);
+
+   lngResult = (lng >= 0)? 'E' : 'W';
+
+   // Call to getDms(lng) function for the coordinates of Longitude in DMS.
+   // The result is stored in lngResult variable.
+   lngResult += getDms(lng);
+
+   // Joining both variables and separate them with a space.
+   dmsResult = latResult + ' ' + lngResult;
+
+   // Return the resultant string
+   return dmsResult;
+}
+    
+//----ddToDms>
+    
+//<---getDms    
+
+function getDms(val) {
+
+  var valDeg, valMin, valSec, result;
+
+  val = Math.abs(val);
+
+  valDeg = Math.floor(val);
+  result = valDeg + "º";
+
+  valMin = Math.floor((val - valDeg) * 60);
+  result += valMin + "'";
+
+  valSec = Math.round((val - valDeg - valMin / 60) * 3600 * 1000) / 1000;
+  result += valSec + '"';
+
+  return result;
+}
+    
+//----getDms> 
+    
+//<---toggleLayer 
+
+function toggleLayer(i) {
+  if (layers[i].getMap() === null) {
+    layers[i].setMap(map);
+  }
+  else {
+    layers[i].setMap(null);
+  }  
+}
+ 
+//----toggleLayer>
+    
+var logoDiv = document.createElement("div");
+var logoPic = document.createElement("img");
+logoPic.src = "sudoc.png";
+logoPic.id = "CompanyLogo";
+logoDiv.appendChild(logoPic);
+    
+function check() 
+    {
+
+        if(document.getElementById('VORDME').checked)
+
+          {VordmeLayer.setMap(map);}
+
+        else 
+
+          {VordmeLayer.setMap(null);}
+        
+
+        if(document.getElementById('P5L').checked)
+
+          {P5lLayer.setMap(map);}
+
+        else 
+
+          {P5lLayer.setMap(null);}
+
+        if(document.getElementById('NDB').checked)
+
+           {NDBLayer.setMap(map);}
+
+        else
+
+           {NDBLayer.setMap(null);}
+        
+        if(document.getElementById('VOR').checked)
+
+          {VorLayer.setMap(map);}
+
+        else 
+
+          {VorLayer.setMap(null);}
+        
+        if(document.getElementById('Para').checked)
+
+          {ParaLayer.setMap(map);}
+
+        else 
+
+          {ParaLayer.setMap(null);}
+    }
+    
+</script>
 </head>
-<body>
-  <h1>Hello world!</h1>
-  <!--<script src="script.js"></script>-->
+<body onload="initMap()">
+<div id="map"></div>
+<div id="coords"></div>
+<div id="checkboxes">
+  <a href="#missions" data-toggle="collapse"><u><i class="glyphicon glyphicon-camera"></i>Missions</u></a>
+  <div id="missions" class="collapse">
+   <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ AERODATA</a>
+    <div id="l1" class="collapse">
+     <div id="checkboxes1"><b style='color:blue'>
+     <input type="checkbox" id="layer10" onClick="toggleLayer(10)"/>AO15<br>
+     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
+     <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
+     <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
+     </div>
+    </div><br>
+  <a href="#l2" data-toggle="collapse">→ ICGC</a>
+     <div id="l2" class="collapse">
+      <div id="checkboxes2">
+      <input type="checkbox" id="layer1" onClick="toggleLayer(1)"/>CAT50 Bloc 01<br />
+      <input type="checkbox" id="layer2" onClick="toggleLayer(2)"/>CAT50 Bloc 02<br />
+      <input type="checkbox" id="layer3" onClick="toggleLayer()"/>CAT50 Bloc 03<br />
+      </div>
+     </div><br>
+  <a href="#l3" data-toggle="collapse">→ APEI</a>
+     <div id="l3" class="collapse">
+      <div id="checkboxes3">
+       <input type="checkbox" id="layer1" onClick="toggleLayer(1)"/>CAT50 Bloc 01<br />
+       <input type="checkbox" id="layer2" onClick="toggleLayer(2)"/>CAT50 Bloc 02<br />
+       <input type="checkbox" id="layer3" onClick="toggleLayer()"/>CAT50 Bloc 03<br />
+      </div>
+     </div>
+  </div><br>
+  <a href="#Data" data-toggle="collapse"><u><i class="glyphicon glyphicon-globe"></i> Données CA</u></a>
+  <div id="Data" class="collapse">
+    <a href="#nav" data-toggle="collapse">→ NAV</a>
+      <div id="nav" class="collapse">
+      <input type="checkbox" id="VORDME" onclick="check()" /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/VOR-DME.svg/95px-VOR-DME.svg.png' title='VOR-DME'height="14" width="14" style="vertical-align:middle"> VOR-DME<br />
+      <input type="checkbox" id="VOR" onclick="check()" /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pictogram_VOR.svg/95px-Pictogram_VOR.svg.png' title='VOR'height="14" width="14" style="vertical-align:middle"> VOR<br />
+      <input type="checkbox" id="P5L" onclick="check()" />▲ P5L<br />
+      <input type="checkbox" id="NDB" onclick="check()" /><img src='https://dl.dropboxusercontent.com/s/rpwj3wp4lsfqjfv/NDB.png' title='NDB'height="14" width="14" style="vertical-align:middle"> NDB<br />
+      </div><br>
+    <a href="#D1" data-toggle="collapse">→ FIR</a>
+       <div id="D1" class="collapse">
+        <div id="checkboxes_D1">
+        <input type="checkbox" id="layer3" onClick="toggleLayer(3)"/><font size="4" color="red">▬</font> FIR LFBB<br />
+        <input type="checkbox" id="layer4" onClick="toggleLayer(4)"/><font size="4" color="purple">▬</font> CTL FIR<br /> 
+        <input type="checkbox" id="Para" onclick="check()" /><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para<br />
+        </div>
+       </div><br>
+    <a href="#D2" data-toggle="collapse">→ UIR</a>
+       <div id="D2" class="collapse">
+        <div id="checkboxes_D2">
+        <input type="checkbox" id="layer7" onClick="toggleLayer(7)"/><font size="4" color="cyan">▬</font> CTL UIR<br />
+        </div>
+       </div>
+  </div>
+</div>
 </body>
 </html>
