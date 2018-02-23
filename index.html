@@ -54,6 +54,7 @@ var CTLUIRLayer = new google.maps.Data();
 var SIVLayer = new google.maps.Data();
 var SFSAGENLayer = new google.maps.Data();
 var SFSALBILayer = new google.maps.Data();
+var SFSANGOLayer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
     
 //<---initMap 
@@ -183,7 +184,7 @@ VordmeLayer.setStyle( function(feature){
     return  {
         icon: {
         path: "M0.15671 0.14499l0 -0.01482m0.07836 -0.12276l-0.15032 0 -0.07617 0.13123 0.07617 0.12912 0.15032 0 0.07408 -0.12912 -0.07408 -0.13123 -0.00424 0m-0.22225 0l0 0.26035 0.30057 0 0 -0.26035 -0.30057 0 0 0.00423",
-        scale: 60,
+        scale: 40,
         fillOpacity: 0,
         strokeColor: 'green',
         strokeWeight: 1,
@@ -192,9 +193,10 @@ VordmeLayer.setStyle( function(feature){
         label: {
         color: "green",
         fontFamily: "Arial",
-        fontSize: "11px",
-        fontWeight: "bold",
-        text: title}
+        fontSize: "8px",
+        fontWeight: "normal",
+        text: title},
+        title:  title
     }
 });   
     
@@ -203,11 +205,10 @@ VordmeLayer.setStyle( function(feature){
 // <---- Calque P5L 
     
 P5lLayer.loadGeoJson(
-            'https://dl.dropboxusercontent.com/s/nmhud5p9qis4a2t/P5L.geojson');
+            'P5L.geojson');
         
 P5lLayer.setStyle( function(feature){
-    var title = feature.getProperty('name');
-    var icon  = feature.getProperty('icon');
+    var title = feature.getProperty("Label");
     return  {
         icon: {
         path: "M150 0 L55 200 L245 200 Z",
@@ -222,14 +223,15 @@ P5lLayer.setStyle( function(feature){
         fontFamily: "Arial",
         fontSize: "8px",
         fontWeight: "normal",
-        text: title}
+        text: title},
+        title:  title
     }
 });
     
 // When the user clicks, open an infowindow
     
 P5lLayer.addListener('click', function (event) {
-        var myHTML = event.feature.getProperty("name");
+        var myHTML = event.feature.getProperty('Label');
         infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
         infowindow.setPosition(event.feature.getGeometry().get());
         infowindow.setOptions({
@@ -246,17 +248,17 @@ SFSAGENLayer.loadGeoJson(
             'FR2AGEN01.geojson');
         
 SFSAGENLayer.setStyle( function(feature){
-    var title = feature.getProperty('name');
     var color = feature.getProperty('stroke');
     var width = feature.getProperty('stroke-width');
     var opacity = feature.getProperty('fill-opacity');
+    var title = feature.getProperty('Label');
     return  {
         label: {
         color: "black",
         fontFamily: "Arial",
         fontSize: "10px",
         fontWeight: "normal",
-        text: title},
+        },
         strokeColor: color,
         strokeWeight: width,
         fillOpacity: opacity,
@@ -267,7 +269,7 @@ SFSAGENLayer.setStyle( function(feature){
 // When the user clicks, open an infowindow
     
 SFSAGENLayer.addListener('click', function (event) {
-        var myHTML = event.feature.getProperty("name");
+        var myHTML = event.feature.getProperty('Label');
         infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + "myHTML" + "</b></div>");
         infowindow.setPosition(event.feature.getGeometry().get());
         infowindow.setOptions({
@@ -284,7 +286,7 @@ SFSALBILayer.loadGeoJson(
             'FR2ALBI01.geojson');
         
 SFSALBILayer.setStyle( function(feature){
-    var title = feature.getProperty('name');
+    var title = feature.getProperty('Label');
     var color = feature.getProperty('stroke');
     var width = feature.getProperty('stroke-width');
     var opacity = feature.getProperty('fill-opacity');
@@ -305,7 +307,7 @@ SFSALBILayer.setStyle( function(feature){
 // When the user clicks, open an infowindow
     
 SFSALBILayer.addListener('click', function (event) {
-        var myHTML = event.feature.getProperty("name");
+        var myHTML = event.feature.getProperty("Label");
         infowindow.setContent(myHTML);
         infowindow.setPosition(event.feature.getGeometry().get());
         infowindow.setOptions({
@@ -315,6 +317,45 @@ SFSALBILayer.addListener('click', function (event) {
     });  
 
 //        Calque SFSALBI---->
+
+// <---- Calque SFSANGO 
+    
+SFSANGOLayer.loadGeoJson(
+            'FR2ANGO01.geojson');
+        
+SFSANGOLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSANGOLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSANGO---->
     
 // <---- Calque VOR
     
@@ -326,7 +367,7 @@ VorLayer.setStyle( function(feature){
     return  {
         icon: {
         path: "m0.15671,0.14499l0,-0.01482m0.07836,-0.12276l-0.15032,0l-0.07617,0.13123l0.07617,0.12912l0.15032,0l0.07408,-0.12912l-0.07408,-0.13123l-0.00424,0m-0.22225,0.00423",
-        scale: 60,
+        scale: 40,
         fillOpacity: 0,
         strokeColor: 'green',
         strokeWeight: 1,
@@ -335,9 +376,10 @@ VorLayer.setStyle( function(feature){
         label: {
         color: "green",
         fontFamily: "Arial",
-        fontSize: "11px",
+        fontSize: "8px",
         fontWeight: "bold",
-        text: title}
+        text: title},
+        title:  title
     }
 });
     
@@ -366,13 +408,13 @@ NDBLayer.setStyle( function(feature){
     return  {
         icon: {
         url: 'https://dl.dropboxusercontent.com/s/rpwj3wp4lsfqjfv/NDB.png',
-        scaledSize: new google.maps.Size(25, 25),
+        scaledSize: new google.maps.Size(20, 20),
         labelOrigin: new google.maps.Point(10, -8)
       }, 
         label: {
         color: "black",
         fontFamily: "Arial",
-        fontSize: "10px",
+        fontSize: "8px",
         fontWeight: "normal",
         text: title},
         title:  title
@@ -412,7 +454,8 @@ ParaLayer.setStyle( function(feature){
         fontFamily: "Arial",
         fontSize: "8px",
         fontWeight: "normal",
-        text: title}
+        text: title},
+        title:  title
     }
 });
     
@@ -590,6 +633,14 @@ function check()
 
           {SFSALBILayer.setMap(null);}
           
+        if(document.getElementById('SFSANGO').checked)
+
+          {SFSANGOLayer.setMap(map);}
+
+        else 
+
+          {SFSANGOLayer.setMap(null);}
+          
         if(document.getElementById('CTL FIR').checked)
 
           {CTLFIRLayer.setMap(map);}
@@ -669,6 +720,7 @@ function check()
      <div id="checkboxes1">
      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSAGEN" onClick="check()"/><span>FR02AGEN01</span></label></div>
      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSALBI" onClick="check()"/><span>FR02ALBI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSANGO" onClick="check()"/><span>FR02ANGO01</span></label></div>
 <!--     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
      <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
      <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
