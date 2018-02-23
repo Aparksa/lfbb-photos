@@ -460,7 +460,7 @@ SFSBOURLayer.addListener('click', function (event) {
 // <---- Calque SFSBRIV 
     
 SFSBRIVLayer.loadGeoJson(
-            'FR2BBRIV01.geojson');
+            'FR2BRIV01.geojson');
         
 SFSBRIVLayer.setStyle( function(feature){
     var title = feature.getProperty('Label');
@@ -484,7 +484,7 @@ SFSBRIVLayer.setStyle( function(feature){
     
 // When the user clicks, open an infowindow
     
-SFSBBRIVLayer.addListener('click', function (event) {
+SFSBRIVLayer.addListener('click', function (event) {
         var myHTML = event.feature.getProperty("Label");
         infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
         infowindow.setPosition(event.feature.getGeometry().get());
@@ -1523,7 +1523,7 @@ function check()
 
           {SFSBRIVLayer.setMap(null);}
           
-        if(document.getElementById('SFSSUI').checked)
+        if(document.getElementById('SFSBSUI').checked)
 
           {SFSBSUILayer.setMap(map);}
 
@@ -1610,6 +1610,62 @@ function check()
         else 
 
           {SFSPERILayer.setMap(null);}
+          
+        if(document.getElementById('SFSPOIT').checked)
+
+          {SFSPOITLayer.setMap(map);}
+
+        else 
+
+          {SFSPOITLayer.setMap(null);}
+          
+        if(document.getElementById('SFSROCH').checked)
+
+          {SFSROCHLayer.setMap(map);}
+
+        else 
+
+          {SFSROCHLayer.setMap(null);}
+          
+        if(document.getElementById('SFSSAMU').checked)
+
+          {SFSSAMULayer.setMap(map);}
+
+        else 
+
+          {SFSSAMULayer.setMap(null);}
+          
+        if(document.getElementById('SFSTARB').checked)
+
+          {SFSTARBLayer.setMap(map);}
+
+        else 
+
+          {SFSTARBLayer.setMap(null);}
+          
+        if(document.getElementById('SFSTOUL').checked)
+
+          {SFSTOULLayer.setMap(map);}
+
+        else 
+
+          {SFSTOULLayer.setMap(null);}
+          
+        if(document.getElementById('SFSTOUR').checked)
+
+          {SFSTOURLayer.setMap(map);}
+
+        else 
+
+          {SFSTOURLayer.setMap(null);}
+          
+        if(document.getElementById('SFSDAX').checked)
+
+          {SFSDAXLayer.setMap(map);}
+
+        else 
+
+          {SFSDAXLayer.setMap(null);}
           
         if(document.getElementById('CTL FIR').checked)
 
@@ -1702,13 +1758,32 @@ function toggle(source) {
   <div id="missions" class="collapse">
    <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ SFS</a>
     <div id="l1" class="collapse">
-     <div id="checkboxlist">
+     <div id="checkboxes1">
      <div class="checkbox checkbox-slider--c checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox"onClick="toggle(this)"/><span><i>TOUS</i></label></span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSAGEN" onClick="check()"/><span>FR02AGEN01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSALBI" onClick="check()"/><span>FR02ALBI01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSANGO" onClick="check()"/><span>FR02ANGO01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBLOI" onClick="check()"/><span>FR02BLOI01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBOUR" onClick="check()"/><span>FR02BOUR01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSAGEN" onClick="check()"/><span>FR2AGEN01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSALBI" onClick="check()"/><span>FR2ALBI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSANGO" onClick="check()"/><span>FR2ANGO01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBLOI" onClick="check()"/><span>FR2BLOI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBOUR" onClick="check()"/><span>FR2BOUR01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBRIV" onClick="check()"/><span>FR2BRIV01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBSUI" onClick="check()"/><span>FR2BSUI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSCHAL" onClick="check()"/><span>FR2CHAL01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSCLER" onClick="check()"/><span>FR2CLER01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSCOGN" onClick="check()"/><span>FR2COGN01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSLIBO" onClick="check()"/><span>FR2LIBO01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSLIMO" onClick="check()"/><span>FR2LIMO01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSMBAN" onClick="check()"/><span>FR2MBAN01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSMLUC" onClick="check()"/><span>FR2MLUC01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSMOUL" onClick="check()"/><span>FR2MOUL01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSPAUX" onClick="check()"/><span>FR2PAUX01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSPERI" onClick="check()"/><span>FR2PERI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSPOIT" onClick="check()"/><span>FR2POIT01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSROCH" onClick="check()"/><span>FR2ROCH01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSSAMU" onClick="check()"/><span>FR2SAMU01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSTARB" onClick="check()"/><span>FR2TARB01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSTOUL" onClick="check()"/><span>FR2TOUL01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSTOUR" onClick="check()"/><span>FR2TOUR01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSDAX" onClick="check()"/><span>FRA2DAX_01</span></label></div>
     </div>
     </div><br>
 <!--    
