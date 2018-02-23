@@ -54,6 +54,7 @@ var CTLUIRLayer = new google.maps.Data();
 var SIVLayer = new google.maps.Data();
 var SFSAGENLayer = new google.maps.Data();
 var SFSALBILayer = new google.maps.Data();
+var FIRLayer = new google.maps.Data();
     
 //<---initMap 
     
@@ -173,39 +174,6 @@ function initMap() {
                ddToDms(event.latLng.lat(),event.latLng.lng())             
         });
  
-<!-- sources des calques
-    
-
-//layers [0] = new google.maps.KmlLayer('/FR02AGEN01.kml',
-//   {preserveViewport: true, suppressInfoWindows: false});
-//layers [1] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoWFo0SG5kcGtJWjQ',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [2] = new google.maps.KmlLayer('https://drive.google.com/uc?export=download&id=0B4OeTzFkWnnoYmdzVkFGN3FWd28',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [3] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/FIR.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [4] = new google.maps.KmlLayer('CTL_FIR.kml',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [5] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Pt.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [6] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/SIV.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [7] = new google.maps.KmlLayer('http://c.collardeau.free.fr/gis/Secteurs_UIR.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [8] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/xmbxvhceyc5rppk/AP_16.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [9] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/a715ht4oq5a7nc6/AQ_16.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-//layers [10] = new google.maps.KmlLayer('https://dl.dropboxusercontent.com/s/v0mvpxndig09fnp/AO15.kmz',
-//  {preserveViewport: true, suppressInfoWindows: false});
-    
- 
---> sources des calques
-    
-//for (var i = 0; i < layers.length; i++) {
-//        layers[i].setMap(null);
-//     }
-               
 // <---- Calque VOR-DME 
         
 VordmeLayer.loadGeoJson(
@@ -460,7 +428,24 @@ ParaLayer.addListener('click', function (event) {
         infowindow.open(map);
     });  
 
-//        Calque Para----> 
+//        Calque Para---->
+
+// <---- Calque FIR 
+    
+FIRLayer.loadGeoJson(
+            'FIR.geojson');
+
+FIRLayer.setStyle(function(feature) {
+    var color = feature.getProperty('stroke');
+    var opacity = feature.getProperty('fill-opacity');
+    return{
+      strokeColor: color,
+      strokeWeight: 2,
+      fillOpacity: opacity
+    };
+});
+            
+//        Calque CTLFIR---->
 
 // <---- Calque CTLFIR 
     
@@ -472,7 +457,7 @@ CTLFIRLayer.setStyle(function(feature) {
     var opacity = feature.getProperty('fill-opacity');
     return{
       strokeColor: color,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillOpacity: opacity
     };
 });
@@ -489,7 +474,7 @@ CTLUIRLayer.setStyle(function(feature) {
     var opacity = feature.getProperty('fill-opacity');
     return{
       strokeColor: color,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillOpacity: opacity
     };
 });
@@ -506,7 +491,7 @@ SIVLayer.setStyle(function(feature) {
     var opacity = feature.getProperty('fill-opacity');
     return{
       strokeColor: color,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillOpacity: opacity
     };
 });
@@ -571,21 +556,7 @@ function getDms(val) {
   return result;
 }
     
-//----getDms> 
-    
-//<---toggleLayer 
 
-// function toggleLayer(i) {
-//  if (layers[i].getMap() === null) {
-//    layers[i].setMap(map);
-//  }
-//  else {
-//    layers[i].setMap(null);
-//  }  
-//}
- 
-//----toggleLayer>
-    
 var logoDiv = document.createElement("div");
 var logoPic = document.createElement("img");
 logoPic.src = "http://c.collardeau.free.fr/sudoc.png";
@@ -626,6 +597,14 @@ function check()
         else 
 
           {CTLFIRLayer.setMap(null);}
+          
+        if(document.getElementById('FIR').checked)
+
+          {FIRLayer.setMap(map);}
+
+        else 
+
+          {FIRLayer.setMap(null);}
         
         if(document.getElementById('CTL UIR').checked)
 
@@ -727,7 +706,7 @@ function check()
     <a href="#D1" data-toggle="collapse">→ FIR</a>
        <div id="D1" class="collapse">
         <div id="checkboxes_D1"><b style='color:blue'>
-        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="layer3" onClick="toggleLayer(3)"/><span><font size="4" color="red">▬</font> FIR LFBB</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="FIR" onClick="check()"/><span><font size="4" color="red">▬</font> FIR LFBB</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL FIR" onClick="check()"/><span><font size="4" color="purple">▬</font> CTL FIR</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="SIV" onClick="check()"/><span><font size="4" color="blue">▬</font> SIV</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="Para" onclick="check()" /><span><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para</span></label></div>
