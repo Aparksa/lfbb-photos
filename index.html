@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="titatoggle-dist.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzsszNcYWEcEb_CwEoHZUv31Gx3A_-XAM&callback=initMap"></script>
         
@@ -18,10 +18,10 @@
    #map { height: 100%; }
    #checkboxes {
   	position: absolute;
-  	top: 50px;
+  	top: 40px;
   	right: 10px;
   	font-family: 'arial', 'sans-serif';
-  	font-size: 14px;
+  	font-size: 13px;
   	background-color: white;
   	border: 2px solid red;
   	padding: 5px 10px;
@@ -55,6 +55,8 @@ var SIVLayer = new google.maps.Data();
 var SFSAGENLayer = new google.maps.Data();
 var SFSALBILayer = new google.maps.Data();
 var SFSANGOLayer = new google.maps.Data();
+var SFSBLOILayer = new google.maps.Data();
+var SFSBOURLayer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
 var TMALayer = new google.maps.Data();
     
@@ -357,6 +359,84 @@ SFSANGOLayer.addListener('click', function (event) {
     });  
 
 //        Calque SFSANGO---->
+
+// <---- Calque SFSBLOI 
+    
+SFSBLOILayer.loadGeoJson(
+            'FR2BLOI01.geojson');
+        
+SFSBLOILayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSBLOILayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSBLOI--->
+
+// <---- Calque SFSBOUR 
+    
+SFSBOURLayer.loadGeoJson(
+            'FR2BOUR01.geojson');
+        
+SFSBOURLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSBOURLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSBOUR--->
     
 // <---- Calque VOR
     
@@ -659,6 +739,22 @@ function check()
 
           {SFSANGOLayer.setMap(null);}
           
+        if(document.getElementById('SFSBLOI').checked)
+
+          {SFSBLOILayer.setMap(map);}
+
+        else 
+
+          {SFSBLOILayer.setMap(null);}
+          
+        if(document.getElementById('SFSBOUR').checked)
+
+          {SFSBOURLayer.setMap(map);}
+
+        else 
+
+          {SFSBOURLayer.setMap(null);}
+          
         if(document.getElementById('CTL FIR').checked)
 
           {CTLFIRLayer.setMap(map);}
@@ -733,6 +829,13 @@ function check()
           {ParaLayer.setMap(null);}
     }
     
+function toggle(source) {
+  sfscheckboxes = document.getElementsByName('SFS');
+  for(var i=0, n=sfscheckboxes.length;i<n;i++) {
+    sfscheckboxes[i].checked = source.checked;
+  }; check()
+}
+    
 </script>
 </head>
 <body onload="initMap()">
@@ -742,16 +845,15 @@ function check()
   <a href="#missions" data-toggle="collapse"><u><i class="glyphicon glyphicon-camera"></i>Missions</u></a>
   <div id="missions" class="collapse">
    <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ SFS</a>
-    <div id="l1" class="collapse"><b style='color:blue'>
-     <div id="checkboxes1">
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSAGEN" onClick="check()"/><span>FR02AGEN01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSALBI" onClick="check()"/><span>FR02ALBI01</span></label></div>
-     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSANGO" onClick="check()"/><span>FR02ANGO01</span></label></div>
-<!--     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
-     <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
-     <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
--->
-     </div>
+    <div id="l1" class="collapse">
+     <div id="checkboxlist">
+     <div class="checkbox checkbox-slider--c checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox"onClick="toggle(this)"/><span><i>TOUS</i></label></span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSAGEN" onClick="check()"/><span>FR02AGEN01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSALBI" onClick="check()"/><span>FR02ALBI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSANGO" onClick="check()"/><span>FR02ANGO01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBLOI" onClick="check()"/><span>FR02BLOI01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSBOUR" onClick="check()"/><span>FR02BOUR01</span></label></div>
+    </div>
     </div><br>
 <!--    
   <a href="#l2" data-toggle="collapse">→ ICGC</a>
