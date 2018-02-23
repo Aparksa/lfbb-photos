@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="titatoggle-dist.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzsszNcYWEcEb_CwEoHZUv31Gx3A_-XAM&callback=initMap"></script>
@@ -31,6 +32,12 @@
         color: white;
         padding: 5px;
       }
+      .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 </style>        
 
 <script type="text/javascript">
@@ -320,9 +327,9 @@ SFSALBILayer.setStyle( function(feature){
         fontSize: "10px",
         fontWeight: "normal",
         text: title},
-        strokeColor: color,
-        strokeWeight: width,
-        fillOpacity: opacity,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
          
     }
 });
@@ -331,7 +338,7 @@ SFSALBILayer.setStyle( function(feature){
     
 SFSALBILayer.addListener('click', function (event) {
         var myHTML = event.feature.getProperty("name");
-        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + "myHTML" + "</b></div>");
+        infowindow.setContent(myHTML);
         infowindow.setPosition(event.feature.getGeometry().get());
         infowindow.setOptions({
             pixelOffset: new google.maps.Size(0, -30)
@@ -679,10 +686,10 @@ function check()
   <a href="#missions" data-toggle="collapse"><u><i class="glyphicon glyphicon-camera"></i>Missions</u></a>
   <div id="missions" class="collapse">
    <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ SFS</a>
-    <div id="l1" class="collapse">
-     <div id="checkboxes1"><b style='color:blue'>
-     <input type="checkbox" id="SFSAGEN" onClick="check()"/>FR02AGEN01<br>
-     <input type="checkbox" id="SFSALBI" onClick="check()"/>FR02ALBI01<br>
+    <div id="l1" class="collapse"><b style='color:blue'>
+     <div id="checkboxes1">
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSAGEN" onClick="check()"/><span>FR02AGEN01</span></label></div>
+     <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SFSALBI" onClick="check()"/><span>FR02ALBI01</span></label></div>
 <!--     <input type="checkbox" id="layer8" onClick="toggleLayer(8)"/>AP16<br>
      <input type="checkbox" id="layer9" onClick="toggleLayer(9)"/>AQ16<br>
      <input type="checkbox" id="layer0" onClick="toggleLayer(0)"/>AT14<br></b>
@@ -711,25 +718,25 @@ function check()
   <a href="#Data" data-toggle="collapse"><u><i class="glyphicon glyphicon-globe"></i> Données CA</u></a>
   <div id="Data" class="collapse">
     <a href="#nav" data-toggle="collapse">→ NAV</a>
-      <div id="nav" class="collapse">
-      <input type="checkbox" id="VORDME" onclick="check()" /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/VOR-DME.svg/95px-VOR-DME.svg.png' title='VOR-DME'height="14" width="14" style="vertical-align:middle"> VOR-DME<br />
-      <input type="checkbox" id="VOR" onclick="check()" /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pictogram_VOR.svg/95px-Pictogram_VOR.svg.png' title='VOR'height="14" width="14" style="vertical-align:middle"> VOR<br />
-      <input type="checkbox" id="P5L" onclick="check()" />▲ P5L<br />
-      <input type="checkbox" id="NDB" onclick="check()" /><img src='https://dl.dropboxusercontent.com/s/rpwj3wp4lsfqjfv/NDB.png' title='NDB'height="14" width="14" style="vertical-align:middle"> NDB<br />
+      <div id="nav" class="collapse"><b style='color:blue'>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="VORDME" onclick="check()" /><span><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/VOR-DME.svg/95px-VOR-DME.svg.png' title='VOR-DME'height="14" width="14" style="vertical-align:middle"> VOR-DME</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="VOR" onclick="check()" /><span><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pictogram_VOR.svg/95px-Pictogram_VOR.svg.png' title='VOR'height="14" width="14" style="vertical-align:middle"> VOR</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="P5L" onclick="check()" /><span>▲ P5L</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="NDB" onclick="check()" /><span><img src='https://dl.dropboxusercontent.com/s/rpwj3wp4lsfqjfv/NDB.png' title='NDB'height="14" width="14" style="vertical-align:middle"> NDB</span></label></div>
       </div><br>
     <a href="#D1" data-toggle="collapse">→ FIR</a>
        <div id="D1" class="collapse">
-        <div id="checkboxes_D1">
-        <input type="checkbox" id="layer3" onClick="toggleLayer(3)"/><font size="4" color="red">▬</font> FIR LFBB<br />
-        <input type="checkbox" id="CTL FIR" onClick="check()"/><font size="4" color="purple">▬</font> CTL FIR<br />
-        <input type="checkbox" id="SIV" onClick="check()"/><font size="4" color="blue">▬</font> SIV<br />
-        <input type="checkbox" id="Para" onclick="check()" /><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para<br />
+        <div id="checkboxes_D1"><b style='color:blue'>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="layer3" onClick="toggleLayer(3)"/><span><font size="4" color="red">▬</font> FIR LFBB</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL FIR" onClick="check()"/><span><font size="4" color="purple">▬</font> CTL FIR</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="SIV" onClick="check()"/><span><font size="4" color="blue">▬</font> SIV</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="Para" onclick="check()" /><span><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para</span></label></div>
         </div>
        </div><br>
     <a href="#D2" data-toggle="collapse">→ UIR</a>
        <div id="D2" class="collapse">
-        <div id="checkboxes_D2">
-        <input type="checkbox" id="CTL UIR" onClick="check()"/><font size="4" color="green">▬</font> CTL UIR<br />
+        <div id="checkboxes_D2"><b style='color:blue'>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="CTL UIR" onClick="check()"/><span><font size="4" color="green">▬</font> CTL UIR</span></label></div>
         </div>
        </div>
   </div>
