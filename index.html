@@ -57,6 +57,25 @@ var SFSALBILayer = new google.maps.Data();
 var SFSANGOLayer = new google.maps.Data();
 var SFSBLOILayer = new google.maps.Data();
 var SFSBOURLayer = new google.maps.Data();
+var SFSBRIVLayer = new google.maps.Data();
+var SFSBSUILayer = new google.maps.Data();
+var SFSCHALLayer = new google.maps.Data();
+var SFSCLERLayer = new google.maps.Data();
+var SFSCOGNLayer = new google.maps.Data();
+var SFSLIBOLayer = new google.maps.Data();
+var SFSLIMOLayer = new google.maps.Data();
+var SFSMBANLayer = new google.maps.Data();
+var SFSMLUCLayer = new google.maps.Data();
+var SFSMOULLayer = new google.maps.Data();
+var SFSPAUXLayer = new google.maps.Data();
+var SFSPERILayer = new google.maps.Data();
+var SFSPOITLayer = new google.maps.Data();
+var SFSROCHLayer = new google.maps.Data();
+var SFSSAMULayer = new google.maps.Data();
+var SFSTARBLayer = new google.maps.Data();
+var SFSTOULLayer = new google.maps.Data();
+var SFSTOURLayer = new google.maps.Data();
+var SFSDAXLayer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
 var TMALayer = new google.maps.Data();
     
@@ -437,6 +456,747 @@ SFSBOURLayer.addListener('click', function (event) {
     });  
 
 //        Calque SFSBOUR--->
+
+// <---- Calque SFSBRIV 
+    
+SFSBRIVLayer.loadGeoJson(
+            'FR2BBRIV01.geojson');
+        
+SFSBRIVLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSBBRIVLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSBRIV--->
+
+// <---- Calque SFSBSUI 
+    
+SFSBSUILayer.loadGeoJson(
+            'FR2BSUI01.geojson');
+        
+SFSBSUILayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSBSUILayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSBSUI--->
+
+// <---- Calque SFSCHAL 
+    
+SFSCHALLayer.loadGeoJson(
+            'FR2CHAL01.geojson');
+        
+SFSCHALLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSCHALLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSCHAL--->
+
+// <---- Calque SFSCLER 
+    
+SFSCLERLayer.loadGeoJson(
+            'FR2CLER01.geojson');
+        
+SFSCLERLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSCLERLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSCLER--->
+
+// <---- Calque SFSCOGN 
+    
+SFSCOGNLayer.loadGeoJson(
+            'FR2COGN01.geojson');
+        
+SFSCOGNLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSCOGNLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSCOGN--->
+
+// <---- Calque SFSLIBO 
+    
+SFSLIBOLayer.loadGeoJson(
+            'FR2LIBO01.geojson');
+        
+SFSLIBOLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSLIBOLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSLIBO--->
+
+// <---- Calque SFSLIMO 
+    
+SFSLIMOLayer.loadGeoJson(
+            'FR2LIMO01.geojson');
+        
+SFSLIMOLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSLIMOLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSLIMO--->
+
+// <---- Calque SFSMBAN 
+    
+SFSMBANLayer.loadGeoJson(
+            'FR2MBAN01.geojson');
+        
+SFSMBANLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSMBANLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSMBAN--->
+
+// <---- Calque SFSMLUC 
+    
+SFSMLUCLayer.loadGeoJson(
+            'FR2MLUC01.geojson');
+        
+SFSMLUCLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSMLUCLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSMLUC--->
+
+// <---- Calque SFSMOUL 
+    
+SFSMOULLayer.loadGeoJson(
+            'FR2MOUL01.geojson');
+        
+SFSMOULLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSMOULLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSMOUL--->
+
+// <---- Calque SFSPAUX 
+    
+SFSPAUXLayer.loadGeoJson(
+            'FR2PAUX01.geojson');
+        
+SFSPAUXLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSPAUXLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSPAUX--->
+
+// <---- Calque SFSPERI 
+    
+SFSPERILayer.loadGeoJson(
+            'FR2PERI01.geojson');
+        
+SFSPERILayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSPERILayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSPERI--->
+
+// <---- Calque SFSPOIT 
+    
+SFSPOITLayer.loadGeoJson(
+            'FR2POIT01.geojson');
+        
+SFSPOITLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSPOITLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSPOIT--->
+
+// <---- Calque SFSROCH 
+    
+SFSROCHLayer.loadGeoJson(
+            'FR2ROCH01.geojson');
+        
+SFSROCHLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSROCHLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSROCH--->
+
+// <---- Calque SFSSAMU 
+    
+SFSSAMULayer.loadGeoJson(
+            'FR2SAMU01.geojson');
+        
+SFSSAMULayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSSAMULayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSSAMU--->
+
+// <---- Calque SFSTARB 
+    
+SFSTARBLayer.loadGeoJson(
+            'FR2TARB01.geojson');
+        
+SFSTARBLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSTARBLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSTARB--->
+
+// <---- Calque SFSTOUL 
+    
+SFSTOULLayer.loadGeoJson(
+            'FR2TOUL01.geojson');
+        
+SFSTOULLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSTOULLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSTOUL--->
+
+// <---- Calque SFSTOUR 
+    
+SFSTOURLayer.loadGeoJson(
+            'FR2TOUR01.geojson');
+        
+SFSTOURLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSTOURLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSTOUR--->
+
+// <---- Calque SFSDAX 
+    
+SFSDAXLayer.loadGeoJson(
+            'FRA2DAX_01.geojson');
+        
+SFSDAXLayer.setStyle( function(feature){
+    var title = feature.getProperty('Label');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "blue",
+        strokeWeight: 2,
+        fillOpacity: 1,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+SFSDAXLayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("Label");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque SFSDAX--->
     
 // <---- Calque VOR
     
@@ -754,6 +1514,102 @@ function check()
         else 
 
           {SFSBOURLayer.setMap(null);}
+          
+        if(document.getElementById('SFSBRIV').checked)
+
+          {SFSBRIVLayer.setMap(map);}
+
+        else 
+
+          {SFSBRIVLayer.setMap(null);}
+          
+        if(document.getElementById('SFSSUI').checked)
+
+          {SFSBSUILayer.setMap(map);}
+
+        else 
+
+          {SFSBSUILayer.setMap(null);}
+          
+        if(document.getElementById('SFSCHAL').checked)
+
+          {SFSCHALLayer.setMap(map);}
+
+        else 
+
+          {SFSCHALLayer.setMap(null);}
+          
+        if(document.getElementById('SFSCLER').checked)
+
+          {SFSCLERLayer.setMap(map);}
+
+        else 
+
+          {SFSCLERLayer.setMap(null);}
+          
+        if(document.getElementById('SFSCOGN').checked)
+
+          {SFSCOGNLayer.setMap(map);}
+
+        else 
+
+          {SFSCOGNLayer.setMap(null);}
+          
+        if(document.getElementById('SFSLIBO').checked)
+
+          {SFSLIBOLayer.setMap(map);}
+
+        else 
+
+          {SFSLIBOLayer.setMap(null);}
+          
+        if(document.getElementById('SFSLIMO').checked)
+
+          {SFSLIMOLayer.setMap(map);}
+
+        else 
+
+          {SFSLIMOLayer.setMap(null);}
+          
+          if(document.getElementById('SFSMBAN').checked)
+
+          {SFSMBANLayer.setMap(map);}
+
+        else 
+
+          {SFSMBANLayer.setMap(null);}
+          
+        if(document.getElementById('SFSMLUC').checked)
+
+          {SFSMLUCLayer.setMap(map);}
+
+        else 
+
+          {SFSMLUCLayer.setMap(null);}
+          
+        if(document.getElementById('SFSMOUL').checked)
+
+          {SFSMOULLayer.setMap(map);}
+
+        else 
+
+          {SFSMOULLayer.setMap(null);}
+          
+        if(document.getElementById('SFSPAUX').checked)
+
+          {SFSPAUXLayer.setMap(map);}
+
+        else 
+
+          {SFSPAUXLayer.setMap(null);}
+          
+        if(document.getElementById('SFSPERI').checked)
+
+          {SFSPERILayer.setMap(map);}
+
+        else 
+
+          {SFSPERILayer.setMap(null);}
           
         if(document.getElementById('CTL FIR').checked)
 
