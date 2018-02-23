@@ -56,6 +56,7 @@ var SFSAGENLayer = new google.maps.Data();
 var SFSALBILayer = new google.maps.Data();
 var SFSANGOLayer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
+var TMALayer = new google.maps.Data();
     
 //<---initMap 
     
@@ -473,6 +474,23 @@ ParaLayer.addListener('click', function (event) {
 
 //        Calque Para---->
 
+// <---- Calque TMA 
+    
+TMALayer.loadGeoJson(
+            'TMA.geojson');
+
+TMALayer.setStyle(function(feature) {
+//    var color = feature.getProperty('stroke');
+    var opacity = feature.getProperty('fill-opacity');
+    return{
+      strokeColor: "grey",
+      strokeWeight: 0.5,
+      fillOpacity: opacity
+    };
+});
+            
+//        Calque TMA---->
+
 // <---- Calque FIR 
     
 FIRLayer.loadGeoJson(
@@ -488,7 +506,7 @@ FIRLayer.setStyle(function(feature) {
     };
 });
             
-//        Calque CTLFIR---->
+//        Calque FIR---->
 
 // <---- Calque CTLFIR 
     
@@ -656,6 +674,14 @@ function check()
         else 
 
           {FIRLayer.setMap(null);}
+          
+        if(document.getElementById('TMA').checked)
+
+          {TMALayer.setMap(map);}
+
+        else 
+
+          {TMALayer.setMap(null);}
         
         if(document.getElementById('CTL UIR').checked)
 
@@ -761,6 +787,7 @@ function check()
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="FIR" onClick="check()"/><span><font size="4" color="red">▬</font> FIR LFBB</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL FIR" onClick="check()"/><span><font size="4" color="purple">▬</font> CTL FIR</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="SIV" onClick="check()"/><span><font size="4" color="blue">▬</font> SIV</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="TMA" onClick="check()"/><span><font size="4" color="grey">▬</font> TMA</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="Para" onclick="check()" /><span><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para</span></label></div>
         </div>
        </div><br>
