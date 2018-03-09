@@ -98,6 +98,7 @@ var ICGCT1Layer = new google.maps.Data();
 var ICGCT2Layer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
 var TMALayer = new google.maps.Data();
+var TSALayer = new google.maps.Data();
     
 //<---initMap 
     
@@ -2128,8 +2129,38 @@ TMALayer.setStyle(function(feature) {
       fillOpacity: opacity
     };
 });
+
+
             
 //        Calque TMA---->
+
+// <---- Calque TSA 
+    
+TSALayer.loadGeoJson(
+            'TSA.geojson');
+
+TSALayer.setStyle(function(feature) {
+  var title = feature.getProperty('CODE');
+    return{
+      strokeColor: "orange",
+      strokeWeight: 1,
+      fillColor: "yellow",
+      fillOpacity: 0.05,
+      title: title
+    };
+});
+
+TSALayer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("CODE");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });
+            
+//        Calque TSA---->
 
 // <---- Calque FIR 
     
@@ -2650,6 +2681,14 @@ function check()
         else 
 
           {TMALayer.setMap(null);}
+          
+        if(document.getElementById('TSA').checked)
+
+          {TSALayer.setMap(map);}
+
+        else 
+
+          {TSALayer.setMap(null);}
         
         if(document.getElementById('CTL UIR').checked)
 
@@ -2813,6 +2852,7 @@ function toggleICGC(source) {
        <div id="D2" class="collapse">
         <div id="checkboxes_D2"><b style='color:blue'>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL UIR" onClick="check()"/><span><font size="4" color="green">▬</font> CTL UIR</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="TSA" onClick="check()"/><span><font size="4" color="orange">▬</font> TSA</span></label></div>
         </div>
        </div>
   </div>
