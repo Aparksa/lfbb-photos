@@ -76,6 +76,26 @@ var SFSTARBLayer = new google.maps.Data();
 var SFSTOULLayer = new google.maps.Data();
 var SFSTOURLayer = new google.maps.Data();
 var SFSDAXLayer = new google.maps.Data();
+var ICGCB1Layer = new google.maps.Data();
+var ICGCC1Layer = new google.maps.Data();
+var ICGCC2Layer = new google.maps.Data();
+var ICGCC3Layer = new google.maps.Data();
+var ICGCE1Layer = new google.maps.Data();
+var ICGCE2Layer = new google.maps.Data();
+var ICGCE3Layer = new google.maps.Data();
+var ICGCE4Layer = new google.maps.Data();
+var ICGCH1Layer = new google.maps.Data();
+var ICGCH2Layer = new google.maps.Data();
+var ICGCH3Layer = new google.maps.Data();
+var ICGCH4Layer = new google.maps.Data();
+var ICGCH5Layer = new google.maps.Data();
+var ICGCK1Layer = new google.maps.Data();
+var ICGCS1Layer = new google.maps.Data();
+var ICGCS2Layer = new google.maps.Data();
+var ICGCS3Layer = new google.maps.Data();
+var ICGCS4Layer = new google.maps.Data();
+var ICGCT1Layer = new google.maps.Data();
+var ICGCT2Layer = new google.maps.Data();
 var FIRLayer = new google.maps.Data();
 var TMALayer = new google.maps.Data();
     
@@ -1197,6 +1217,786 @@ SFSDAXLayer.addListener('click', function (event) {
     });  
 
 //        Calque SFSDAX--->
+
+// <---- Calque ICGCB1 
+    
+ICGCB1Layer.loadGeoJson(
+            'B1.geojson');
+        
+ICGCB1Layer.setStyle( function(feature){
+    var title = feature.getProperty('line');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCB1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("line");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCB1--->
+
+// <---- Calque ICGCC1 
+    
+ICGCC1Layer.loadGeoJson(
+            'C1.geojson');
+        
+ICGCC1Layer.setStyle( function(feature){
+    var title = feature.getProperty('line');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCC1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("line");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCC1--->
+
+// <---- Calque ICGCC2 
+    
+ICGCC2Layer.loadGeoJson(
+            'C2.geojson');
+        
+ICGCC2Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCC2Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCC2--->
+
+// <---- Calque ICGCC3 
+    
+ICGCC3Layer.loadGeoJson(
+            'C3.geojson');
+        
+ICGCC3Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCC3Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCC3--->
+
+// <---- Calque ICGCE1 
+    
+ICGCE1Layer.loadGeoJson(
+            'E1.geojson');
+        
+ICGCE1Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCE1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCE1--->
+
+// <---- Calque ICGCE2 
+    
+ICGCE2Layer.loadGeoJson(
+            'E2.geojson');
+        
+ICGCE2Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCE2Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCE2--->
+
+// <---- Calque ICGCE3 
+    
+ICGCE3Layer.loadGeoJson(
+            'E3.geojson');
+        
+ICGCE3Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCE3Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCE3--->
+
+// <---- Calque ICGCE4 
+    
+ICGCE4Layer.loadGeoJson(
+            'E4.geojson');
+        
+ICGCE4Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCE4Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCE4--->
+
+// <---- Calque ICGCH1 
+    
+ICGCH1Layer.loadGeoJson(
+            'H1.geojson');
+        
+ICGCH1Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCH1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCH1--->
+
+// <---- Calque ICGCH2 
+    
+ICGCH2Layer.loadGeoJson(
+            'H2.geojson');
+        
+ICGCH2Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCH2Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCH2--->
+
+// <---- Calque ICGCH3 
+    
+ICGCH3Layer.loadGeoJson(
+            'H3.geojson');
+        
+ICGCH3Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCH3Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCH3--->
+
+// <---- Calque ICGCH4 
+    
+ICGCH4Layer.loadGeoJson(
+            'H4.geojson');
+        
+ICGCH4Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCH4Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCH4--->
+
+// <---- Calque ICGCH5 
+    
+ICGCH5Layer.loadGeoJson(
+            'H5.geojson');
+        
+ICGCH5Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCH5Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCH5--->
+
+// <---- Calque ICGCK1 
+    
+ICGCK1Layer.loadGeoJson(
+            'K1.geojson');
+        
+ICGCK1Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCK1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCK1--->
+
+// <---- Calque ICGCS1 
+    
+ICGCS1Layer.loadGeoJson(
+            'S1.geojson');
+        
+ICGCS1Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCS1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCS1--->
+
+// <---- Calque ICGCS2 
+    
+ICGCS2Layer.loadGeoJson(
+            'S2.geojson');
+        
+ICGCS2Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCS2Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCS2--->
+
+// <---- Calque ICGCS3 
+    
+ICGCS3Layer.loadGeoJson(
+            'S3.geojson');
+        
+ICGCS3Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCS3Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCS3--->
+
+// <---- Calque ICGCS4 
+    
+ICGCS4Layer.loadGeoJson(
+            'S4.geojson');
+        
+ICGCS4Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCS4Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCS4--->
+
+// <---- Calque ICGCT1 
+    
+ICGCT1Layer.loadGeoJson(
+            'T1.geojson');
+        
+ICGCT1Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCT1Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCT1--->
+
+// <---- Calque ICGCT2 
+    
+ICGCT2Layer.loadGeoJson(
+            'T2.geojson');
+        
+ICGCT2Layer.setStyle( function(feature){
+    var title = feature.getProperty('name');
+    var color = feature.getProperty('stroke');
+    var width = feature.getProperty('stroke-width');
+    var opacity = feature.getProperty('fill-opacity');
+    return  {
+        label: {
+        color: "black",
+        fontFamily: "Arial",
+        fontSize: "10px",
+        fontWeight: "normal",
+        text: title},
+        title:  title,
+        strokeColor: "green",
+        strokeWeight: 3,
+        fillOpacity: 0,
+         
+    }
+});
+    
+// When the user clicks, open an infowindow
+    
+ICGCT2Layer.addListener('click', function (event) {
+        var myHTML = event.feature.getProperty("name");
+        infowindow.setContent("<div style='border:3px double #0000ff; width:auto; text-align: center; color:blue;'><b>" + myHTML + "</b></div>");
+        infowindow.setPosition(event.feature.getGeometry().get());
+        infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
+        infowindow.open(map);
+    });  
+
+//        Calque ICGCT2--->
     
 // <---- Calque VOR
     
@@ -1667,6 +2467,166 @@ function check()
 
           {SFSDAXLayer.setMap(null);}
           
+         if(document.getElementById('ICGCB1').checked)
+
+          {ICGCB1Layer.setMap(map);}
+
+        else 
+
+          {ICGCB1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCC1').checked)
+
+          {ICGCC1Layer.setMap(map);}
+
+        else 
+
+          {ICGCC1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCC2').checked)
+
+          {ICGCC2Layer.setMap(map);}
+
+        else 
+
+          {ICGCC2Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCC3').checked)
+
+          {ICGCC3Layer.setMap(map);}
+
+        else 
+
+          {ICGCC3Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCE1').checked)
+
+          {ICGCE1Layer.setMap(map);}
+
+        else 
+
+          {ICGCE1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCE2').checked)
+
+          {ICGCE2Layer.setMap(map);}
+
+        else 
+
+          {ICGCE2Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCE3').checked)
+
+          {ICGCE3Layer.setMap(map);}
+
+        else 
+
+          {ICGCE3Layer.setMap(null);}
+          
+         if(document.getElementById('ICGCE4').checked)
+
+          {ICGCE4Layer.setMap(map);}
+
+        else 
+
+          {ICGCE4Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCH1').checked)
+
+          {ICGCH1Layer.setMap(map);}
+
+        else 
+
+          {ICGCH1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCH2').checked)
+
+          {ICGCH2Layer.setMap(map);}
+
+        else 
+
+          {ICGCH2Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCH3').checked)
+
+          {ICGCH3Layer.setMap(map);}
+
+        else 
+
+          {ICGCH3Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCH4').checked)
+
+          {ICGCH4Layer.setMap(map);}
+
+        else 
+
+          {ICGCH4Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCH5').checked)
+
+          {ICGCH5Layer.setMap(map);}
+
+        else 
+
+          {ICGCH5Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCK1').checked)
+
+          {ICGCK1Layer.setMap(map);}
+
+        else 
+
+          {ICGCK1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCS1').checked)
+
+          {ICGCS1Layer.setMap(map);}
+
+        else 
+
+          {ICGCS1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCS2').checked)
+
+          {ICGCS2Layer.setMap(map);}
+
+        else 
+
+          {ICGCS2Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCS3').checked)
+
+          {ICGCS3Layer.setMap(map);}
+
+        else 
+
+          {ICGCS3Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCS4').checked)
+
+          {ICGCS4Layer.setMap(map);}
+
+        else 
+
+          {ICGCS4Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCT1').checked)
+
+          {ICGCT1Layer.setMap(map);}
+
+        else 
+
+          {ICGCT1Layer.setMap(null);}
+          
+        if(document.getElementById('ICGCT2').checked)
+
+          {ICGCT2Layer.setMap(map);}
+
+        else 
+
+          {ICGCT2Layer.setMap(null);}
+          
         if(document.getElementById('CTL FIR').checked)
 
           {CTLFIRLayer.setMap(map);}
@@ -1741,10 +2701,17 @@ function check()
           {ParaLayer.setMap(null);}
     }
     
-function toggle(source) {
+function toggleSFS(source) {
   sfscheckboxes = document.getElementsByName('SFS');
   for(var i=0, n=sfscheckboxes.length;i<n;i++) {
     sfscheckboxes[i].checked = source.checked;
+  }; check()
+}
+
+function toggleICGC(source) {
+  icgccheckboxes = document.getElementsByName('ICGC');
+  for(var i=0, n=icgccheckboxes.length;i<n;i++) {
+    icgccheckboxes[i].checked = source.checked;
   }; check()
 }
     
@@ -1759,7 +2726,7 @@ function toggle(source) {
    <a href="#l1" data-toggle="collapse"><span class="glyphicon glyphicons-map"></span>→ SFS</a>
     <div id="l1" class="collapse">
      <div id="checkboxes1">
-     <div class="checkbox checkbox-slider--c checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox"onClick="toggle(this)"/><span><i>TOUS</i></label></span></label></div>
+     <div class="checkbox checkbox-slider--c checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox"onClick="toggleSFS(this)"/><span><i>TOUS</i></label></span></label></div>
      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSAGEN" onClick="check()"/><span>FR2AGEN01</span></label></div>
      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSALBI" onClick="check()"/><span>FR2ALBI01</span></label></div>
      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSANGO" onClick="check()"/><span>FR2ANGO01</span></label></div>
@@ -1786,15 +2753,33 @@ function toggle(source) {
      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="SFS" id="SFSDAX" onClick="check()"/><span>FRA2DAX_01</span></label></div>
     </div>
     </div><br>
-<!--    
   <a href="#l2" data-toggle="collapse">→ ICGC</a>
      <div id="l2" class="collapse">
       <div id="checkboxes2">
-      <input type="checkbox" id="layer1" onClick="toggleLayer(1)"/>CAT50 Bloc 01<br />
-      <input type="checkbox" id="layer2" onClick="toggleLayer(2)"/>CAT50 Bloc 02<br />
-      <input type="checkbox" id="layer3" onClick="toggleLayer()"/>CAT50 Bloc 03<br />
+      <div class="checkbox checkbox-slider--c checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox"onClick="toggleICGC(this)"/><span><i>TOUS</i></label></span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCB1" onClick="check()"/><span>B1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCC1" onClick="check()"/><span>C1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCC2" onClick="check()"/><span>C2</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCC3" onClick="check()"/><span>C3</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCE1" onClick="check()"/><span>E1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCE2" onClick="check()"/><span>E2</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCE3" onClick="check()"/><span>E3</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCE4" onClick="check()"/><span>E4</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCH1" onClick="check()"/><span>H1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCH2" onClick="check()"/><span>H2</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCH3" onClick="check()"/><span>H3</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCH4" onClick="check()"/><span>H4</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCH5" onClick="check()"/><span>H5</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCK1" onClick="check()"/><span>K1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCS1" onClick="check()"/><span>S1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCS2" onClick="check()"/><span>S2</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCS3" onClick="check()"/><span>S3</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCS4" onClick="check()"/><span>S4</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCT1" onClick="check()"/><span>T1</span></label></div>
+      <div class="checkbox checkbox-slider--b checkbox-slider-sm checkbox-slider-info"><label><input type="checkbox" name="ICGC" id="ICGCT2" onClick="check()"/><span>T2</span></label></div>
       </div>
      </div><br>
+<!--    
   <a href="#l3" data-toggle="collapse">→ APEI</a>
      <div id="l3" class="collapse">
       <div id="checkboxes3">
@@ -1819,7 +2804,7 @@ function toggle(source) {
         <div id="checkboxes_D1"><b style='color:blue'>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="FIR" onClick="check()"/><span><font size="4" color="red">▬</font> FIR LFBB</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL FIR" onClick="check()"/><span><font size="4" color="purple">▬</font> CTL FIR</span></label></div>
-        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="SIV" onClick="check()"/><span><font size="4" color="blue">▬</font> SIV</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="SIV" onClick="check()"/><span><font size="4" color="blue">▬</font> SIV</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="TMA" onClick="check()"/><span><font size="4" color="grey">▬</font> TMA</span></label></div>
         <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="Para" onclick="check()" /><span><img src='https://dl.dropboxusercontent.com/s/ephvj7fgrb66wf8/para.png' title='parachutisme'height="14" width="14" style="vertical-align:middle"> Para</span></label></div>
         </div>
@@ -1827,7 +2812,7 @@ function toggle(source) {
     <a href="#D2" data-toggle="collapse">→ UIR</a>
        <div id="D2" class="collapse">
         <div id="checkboxes_D2"><b style='color:blue'>
-        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" id="CTL UIR" onClick="check()"/><span><font size="4" color="green">▬</font> CTL UIR</span></label></div>
+        <div class="checkbox checkbox-slider--b checkbox-slider-sm"><label><input type="checkbox" checked id="CTL UIR" onClick="check()"/><span><font size="4" color="green">▬</font> CTL UIR</span></label></div>
         </div>
        </div>
   </div>
